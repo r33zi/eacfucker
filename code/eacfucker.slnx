@@ -1,0 +1,9 @@
+# made by enameydev on github
+
+<Solution>
+  <Configurations>
+    <BuildType Name="Release" />
+    <Platform Name="x64" />
+  </Configurations>
+  <Project Path="eacfucker.vcxproj" Id="12345678-1234-1234-1234-123456789abc" />
+</Solution>

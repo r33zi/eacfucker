@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{12345678-1234-1234-1234-123456789ABC}</ProjectGuid>
+    <RootNamespace>eacfucker</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0.26100.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Driver</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v145</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>_AMD64_;_DDK_DRIVER_;_POOL_NX_OPTIN_AUTO_;NTDDI_VERSION=0x0A00000A;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>
+        C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\km;
+        C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\shared;
+        C:\Program Files (x86)\Windows Kits\10\Include\10.0.26100.0\ucrt;
+        .;
+        serialblocker\core;
+        serialblocker\hooks;
+        serialblocker\spoof;
+        traceblocker;
+        hde;
+        %(AdditionalIncludeDirectories)
+      </AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <UseFullPaths>false</UseFullPaths>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+    </ClCompile>
+    <Link>
+      <SubSystem>Native</SubSystem>
+      <EntryPointSymbol>DriverEntry</EntryPointSymbol>
+      <AdditionalLibraryDirectories>
+        C:\Program Files (x86)\Windows Kits\10\Lib\10.0.26100.0\km\x64;
+        %(AdditionalLibraryDirectories)
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>ntoskrnl.lib;hal.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.c" />
+    <ClCompile Include="serialblocker\core\kernel.c" />
+    <ClCompile Include="serialblocker\core\physical.c" />
+    <ClCompile Include="serialblocker\core\pagetable.c" />
+    <ClCompile Include="serialblocker\core\memory.c" />
+    <ClCompile Include="serialblocker\core\ssdt.c" />
+    <ClCompile Include="serialblocker\core\logger.c" />
+    <ClCompile Include="serialblocker\hooks\eat.c" />
+    <ClCompile Include="serialblocker\hooks\pph.c" />
+    <ClCompile Include="serialblocker\hooks\shadow.c" />
+    <ClCompile Include="serialblocker\hooks\etw.c" />
+    <ClCompile Include="serialblocker\hooks\exceptions.c" />
+    <ClCompile Include="serialblocker\hooks\syscalls.c" />
+    <ClCompile Include="serialblocker\hooks\kernel_hooks.c" />
+    <ClCompile Include="serialblocker\spoof\process.c" />
+    <ClCompile Include="serialblocker\spoof\image.c" />
+    <ClCompile Include="traceblocker\acl.c" />
+    <ClCompile Include="hde\hde32.c" />
+    <ClCompile Include="hde\hde64.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="serialblocker\core\kernel.h" />
+    <ClInclude Include="serialblocker\core\physical.h" />
+    <ClInclude Include="serialblocker\core\pagetable.h" />
+    <ClInclude Include="serialblocker\core\memory.h" />
+    <ClInclude Include="serialblocker\core\ssdt.h" />
+    <ClInclude Include="serialblocker\core\logger.h" />
+    <ClInclude Include="serialblocker\core\types.h" />
+    <ClInclude Include="serialblocker\core\strings.h" />
+    <ClInclude Include="serialblocker\hooks\eat.h" />
+    <ClInclude Include="serialblocker\hooks\pph.h" />
+    <ClInclude Include="serialblocker\hooks\shadow.h" />
+    <ClInclude Include="serialblocker\hooks\etw.h" />
+    <ClInclude Include="serialblocker\hooks\exceptions.h" />
+    <ClInclude Include="serialblocker\hooks\syscalls.h" />
+    <ClInclude Include="serialblocker\hooks\kernel_hooks.h" />
+    <ClInclude Include="serialblocker\spoof\process.h" />
+    <ClInclude Include="serialblocker\spoof\image.h" />
+    <ClInclude Include="traceblocker\acl.h" />
+    <ClInclude Include="hde\hde.h" />
+    <ClInclude Include="hde\hde32.h" />
+    <ClInclude Include="hde\hde64.h" />
+    <ClInclude Include="hde\hde_stdint.h" />
+    <ClInclude Include="hde\table32.h" />
+    <ClInclude Include="hde\table64.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+</Project>
